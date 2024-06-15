@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const port = 8000;
+require('dotenv').config();
 
 // App Middleware
 app.use(express.json());
@@ -15,7 +16,10 @@ require('./configs/mongoose.config')
 
 // App routes
 const appRoutes = require('./routes/pirate.routes');
-appRoutes(app)
+appRoutes(app);
+
+const userRoutes = require('./routes/user.routes');
+userRoutes(app);
 
 
 //Run server
